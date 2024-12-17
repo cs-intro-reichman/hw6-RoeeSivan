@@ -146,10 +146,12 @@ public class Runigram {
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
 		//// Replace the following statement with your code
-		Color [][] newImage = new Color [ image.length][image[0].length];
-		for(int i =0;i<image[0].length;i++)
+		int height = image.length; //number of rows
+		int width = image[0].length; // number of columns
+		Color [][] newImage = new Color [ height][width];
+		for(int i =0;i<width;i++)
 		{
-			for(int j =0;j<image.length;j++)
+			for(int j =0;j<height;j++)
 			{	
 				newImage[i][j] = luminance(image[i][j]);
 			}
