@@ -9,19 +9,19 @@ public class Runigram {
 		
 		// Tests the reading and printing of an image:	
 		Color[][] tinypic = read("tinypic.ppm");
-		//print(tinypic);
+		
 		Color testColor = new Color (100,10,10);
 		Color color1 = new Color(100,40,100);
 		Color color2 = new Color(200,20,40);
 		testColor = blend(color1,(color2),(0.25));
-		print(testColor);
+		//print(testColor);
 		// Creates an image which will be the result of various 
 		// image processing operations:
 		Color[][] image;
-
+		image = flippedVertically(tinypic);
+		print(image);
 		// Tests the horizontal flipping of an image:
-		//image = flippedHorizontally(tinypic);
-		image = grayScaled(tinypic);
+		//image = grayScaled(tinypic);
 		//image = scaled(tinypic);
 		//System.out.println(image);
 	//	print(scaled(tinypic,3,5));
@@ -100,11 +100,13 @@ public class Runigram {
 	 */
 	public static Color[][] flippedHorizontally(Color[][] image) {
 		//// Replace the following statement with your code
-		Color [][] newImage = new Color [ image.length][image[0].length];
-		for(int j =0;j<image[0].length;j++)
+		int height = image.length;
+		int width = image[0].length;
+		Color [][] newImage = new Color [height][width];
+		for(int i =0;i<height;i++)
 		{
-			for(int i =0;i<image.length;i++)
-			{	newImage[i][image.length-1-j] = image[i][j];
+			for(int j =0;j<image.length;j++)
+			{	newImage[i][width-1-j] = image[i][j];
 			}
 		}
 		return newImage;
@@ -115,12 +117,14 @@ public class Runigram {
 	 */
 	public static Color[][] flippedVertically(Color[][] image){
 		//// Replace the following statement with your code
-		Color [][] newImage = new Color [ image.length][image[0].length];
-		for(int i =0;i<image[0].length;i++)
+		int height = image.length;
+		int width = image[0].length;
+		Color [][] newImage = new Color [height][width];
+		for(int i =0;i< width;i++)
 		{
-			for(int j =0;j<image.length;j++)
+			for(int j =0;j<height;j++)
 			{	
-				newImage[image.length-1-i][j] = image[i][j];
+				newImage[height-1-i][j] = image[i][j];
 			}
 		}
 		return newImage;
