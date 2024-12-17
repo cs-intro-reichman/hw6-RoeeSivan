@@ -105,7 +105,7 @@ public class Runigram {
 		Color [][] newImage = new Color [height][width];
 		for(int i =0;i<height;i++)
 		{
-			for(int j =0;j<image.length;j++)
+			for(int j =0;j<width;j++)
 			{	newImage[i][width-1-j] = image[i][j];
 			}
 		}
@@ -117,12 +117,12 @@ public class Runigram {
 	 */
 	public static Color[][] flippedVertically(Color[][] image){
 		//// Replace the following statement with your code
-		int height = image.length;
-		int width = image[0].length;
+		int height = image.length; //number of rows
+		int width = image[0].length; // number of columns
 		Color [][] newImage = new Color [height][width];
-		for(int i =0;i< width;i++)
+		for(int i =0;i< height;i++)
 		{
-			for(int j =0;j<height;j++)
+			for(int j =0;j<width;j++)
 			{	
 				newImage[height-1-i][j] = image[i][j];
 			}
