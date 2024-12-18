@@ -149,9 +149,9 @@ public class Runigram {
 		int height = image.length; //number of rows
 		int width = image[0].length; // number of columns
 		Color [][] newImage = new Color [ height][width];
-		for(int i =0;i<width;i++)
+		for(int i =0;i<height;i++)
 		{
-			for(int j =0;j<height;j++)
+			for(int j =0;j<width;j++)
 			{	
 				newImage[i][j] = luminance(image[i][j]);
 			}
