@@ -9,25 +9,18 @@ public class Runigram {
 		
 		// Tests the reading and printing of an image:	
 		Color[][] tinypic = read("tinypic.ppm");
-		
+		Color[][] tinypic1 = read("xmen.ppm");
+		Color[][] var0 = Runigram.grayScaled(tinypic1);
+		print(var0);
 		Color testColor = new Color (100,10,10);
 		Color color1 = new Color(100,40,100);
 		Color color2 = new Color(200,20,40);
-		testColor = blend(color1,(color2),(0.25));
+		//testColor = blend(color1,(color2),(0.25));
 		//print(testColor);
 		// Creates an image which will be the result of various 
 		// image processing operations:
 		Color[][] image;
 		image = flippedVertically(tinypic);
-		print(image);
-		// Tests the horizontal flipping of an image:
-		//image = grayScaled(tinypic);
-		//image = scaled(tinypic);
-		//System.out.println(image);
-	//	print(scaled(tinypic,3,5));
-		
-		//// Write here whatever code you need in order to test your work.
-		//// You can continue using the image array.
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -137,7 +130,7 @@ public class Runigram {
 	private static Color luminance(Color pixel) {
 		Color Newcolor;
 		double lum = 0.299 * pixel.getRed() + 0.587 * pixel.getGreen() + 0.114 * pixel.getBlue();
-		int roundedLum = (int) Math.round(lum);
+		int roundedLum = (int) (lum);
 		return new Color(roundedLum,roundedLum,roundedLum);
 	}
 	
@@ -145,7 +138,6 @@ public class Runigram {
 	 * Returns an image which is the grayscaled version of the given image.
 	 */
 	public static Color[][] grayScaled(Color[][] image) {
-		//// Replace the following statement with your code
 		int height = image.length; //number of rows
 		int width = image[0].length; // number of columns
 		Color [][] newImage = new Color [ height][width];
