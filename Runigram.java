@@ -7,20 +7,9 @@ public class Runigram {
 	    
 		//// Hide / change / add to the testing code below, as needed.
 		
-		// Tests the reading and printing of an image:	
-		Color[][] tinypic = read("tinypic.ppm");
-		Color[][] tinypic1 = read("xmen.ppm");
-		Color[][] var0 = Runigram.grayScaled(tinypic1);
-		print(var0);
-		Color testColor = new Color (100,10,10);
-		Color color1 = new Color(100,40,100);
-		Color color2 = new Color(200,20,40);
-		//testColor = blend(color1,(color2),(0.25));
-		//print(testColor);
+		// Tests the reading and printing of an image:	 
 		// Creates an image which will be the result of various 
 		// image processing operations:
-		Color[][] image;
-		image = flippedVertically(tinypic);
 	}
 
 	/** Returns a 2D array of Color values, representing the image data
@@ -222,15 +211,14 @@ public class Runigram {
 	 */
 	public static void morph(Color[][] source, Color[][] target, int n) {
 
-		if((source[0].length!=target[0].length) || (source.length!=target.length))
+		Color[][] target1 = scaled(target, source[0].length,source.length); // i make the target the dimensions i wan
+		double stepSize = 1.0 / n; //my 
+		for(int i =0;i<n;i++)
 		{
-			target = scaled(source, source[0].length,  source.length); 
-		}
-		for(int i =0;i<=n;i++)
-		{
-			target = blend(source,target, (n-i)/n);
-			Runigram.display(target);
-			StdDraw.pause(500);
+			double alpha = (double)(stepSize*i);
+			Color[][] morphed = blend(source, target1, alpha);
+			display(morphed);
+			StdDraw.pause(500);//pause for 500 milliseconds.
 		}
 	}
 	
